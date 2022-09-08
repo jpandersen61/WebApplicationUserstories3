@@ -9,6 +9,11 @@ namespace WebApplicationUserstories.Models
         public string Title { get; set; }
         public string Description { get; set; }
 
+        public int BusinessValue { get; set; }
+        public DateTime CreationDate { get; set; }
+        public int Priority { get; set; }
+        public string StoryPoints { get; set; }
+
         void NextID()
         {
             nextId++;
@@ -20,13 +25,21 @@ namespace WebApplicationUserstories.Models
             Id = 0;
             Title = "";
             Description = "";
+            BusinessValue = 0;
+            CreationDate = DateTime.Now;
+            Priority = 0;
+            StoryPoints = "None";
         }
 
-        public UserStory(string title, string description)
+        public UserStory(string title, string description, int businessValue, int priority, string storyPoints)
         {
             NextID();
             Title = title;
             Description = description;
+            BusinessValue = businessValue;
+            CreationDate = DateTime.Now;
+            Priority = priority;
+            StoryPoints = storyPoints;
         }
 
 
