@@ -1,10 +1,11 @@
 using WebApplicationUserstories.Services;
+using WebApplicationUserstories3.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<UserStoryService, UserStoryService>();
+builder.Services.AddSingleton< MyInterface,UserStoryService > ();
 
 var app = builder.Build();
 

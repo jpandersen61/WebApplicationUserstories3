@@ -1,10 +1,11 @@
 ﻿using WebApplicationUserstories.Models;
 using WebApplicationUserstories.MockData;
+using WebApplicationUserstories3.Interfaces;
 
 
 namespace WebApplicationUserstories.Services
 {
-    public class UserStoryService
+    public class UserStoryService : MyInterface
     {
         private List<UserStory>? userStories;
         
@@ -18,8 +19,13 @@ namespace WebApplicationUserstories.Services
             return userStories;
         }
 
-        public UserStory GetUserStory(int id)
+        public UserStory ? GetUserStory(int ? id)
         {
+            if (id == null)
+            {
+                return null;
+            }
+
             foreach (UserStory userStory in userStories)
             {
                 if (userStory.Id == id)
@@ -45,6 +51,11 @@ namespace WebApplicationUserstories.Services
             }
             return userstoryToBeDeleted;
         }
+        public void MyMethod()
+        {
+
+        }
+
 
     }
 

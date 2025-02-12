@@ -2,19 +2,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApplicationUserstories.Services;
 using WebApplicationUserstories.Models;
+using WebApplicationUserstories3.Interfaces;
 
 namespace WebApplicationUserstories.Pages.UserStories
 {
     public class DeleteUserStoryModel : PageModel
     {
-        private UserStoryService userStoryService;
+        private MyInterface userStoryService;
 
 
         //public int UserStoryIDToBeDeleted { get; set; }
         [BindProperty]
         public UserStory UserStory { get; set; }
 
-        public DeleteUserStoryModel(UserStoryService userStoryService)
+        public DeleteUserStoryModel(MyInterface userStoryService)
         {
             this.userStoryService = userStoryService;
         }
@@ -28,7 +29,7 @@ namespace WebApplicationUserstories.Pages.UserStories
         public IActionResult OnPost()
         {
             UserStory deletedUserStory = userStoryService.DeleteUserStory(UserStory.Id);
-            return RedirectToPage("UserStories");
+            return RedirectToPage("UserStoryDetailModel");
         }
 
 
